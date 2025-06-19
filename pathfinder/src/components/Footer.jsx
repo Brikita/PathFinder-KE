@@ -1,25 +1,13 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import "../style.css";
 
 const Footer = () => (
-  <Box
-    component="footer"
-    sx={{
-      py: 3,
-      px: 2,
-      position: "fixed",
-      left: 0,
-      bottom: 0,
-      width: "100%",
-      backgroundColor: "background.paper",
-      textAlign: "center",
-      zIndex: 1300,
-    }}
-  >
+  <Box component="footer" className="footer">
     <Container maxWidth="md">
-      <Typography variant="body2" color="text.secondary">
+      <Typography variant="body2" className="footer-text">
         © {new Date().getFullYear()} PathFinder-KE. All rights reserved.
       </Typography>
     </Container>

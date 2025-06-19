@@ -1,111 +1,105 @@
-import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
+import React, { useEffect, useState } from 'react';
+import '../style.css';
 
 const navLinks = [
-  { label: "Home", to: "home-section" },
-  { label: "About", to: "about-section" },
-  { label: "Contact", to: "contact-section" },
+  { label: 'Home', section: 'home-section' },
+  { label: 'About', section: 'about-section' },
+  { label: 'Contact', section: 'contact-section' },
 ];
 
-const NavBar = ({ onNavClick, colorMode, mode }) => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const menuOpen = Boolean(anchorEl);
+const NavBar = ({ onNavClick }) => {
+  const [activeSection, setActiveSection] = useState('home-section');
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleMenuOpen = (event) => setAnchorEl(event.currentTarget);
-  const handleMenuClose = () => setAnchorEl(null);
+  useEffect(() => {
+  // Highlight active section on scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.find((entry) => entry.isIntersecting);
+      if (visible) setActiveSection(visible.target.id);
+    },
+    { threshold: 0.1 }
+  );
 
-  const handleScroll = (section) => {
-    if (onNavClick) onNavClick(section);
-    handleMenuClose();
-  };
+  navLinks.forEach((link) => {
+    const section = document.getElementById(link.section);
+    if (section) observer.observe(section);
+  });
+
+  return () => observer.disconnect();
+}, []);
+
+// 👉 Toggle overflow lock on body when menu is open
+useEffect(() => {
+  document.body.classList.toggle('menu-open', menuOpen);
+}, [menuOpen]);
 
   return (
-    <AppBar position="static">
-      <Toolbar sx={{ minHeight: 64 }}>
-        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              height: 64,
-              cursor: "pointer",
-            }}
-            onClick={() => handleScroll("home-section")}
-          >
-            <img
-              src="/logo.svg"
-              alt="PathFinder-KE Logo"
-              style={{
-                width: 48,
-                height: 48,
-                filter: "invert(1) brightness(2)",
-              }}
-            />
-          </Box>
-        </Box>
-        
-        {isMobile ? (
-          <>
-            <IconButton
-              color="inherit"
-              edge="end"
-              onClick={menuOpen ? handleMenuClose : handleMenuOpen}
-              sx={{ ml: 1 }}
-            >
-              {menuOpen ? <CloseIcon /> : <MenuIcon />}
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={menuOpen}
-              onClose={handleMenuClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-            >
-              {navLinks.map((link) => (
-                <MenuItem key={link.to} onClick={() => handleScroll(link.to)}>
-                  {link.label}
-                </MenuItem>
-              ))}
-            </Menu>
-          </>
-        ) : (
-          <Box>
-            {navLinks.map((link) => (
-              <Button
-                key={link.to}
-                color="inherit"
-                onClick={() => handleScroll(link.to)}
-                sx={{
-                  borderBottom: "none",
-                  borderRadius: 0,
+    <header className="header">
+      {/* Logo */}
+      <a
+        href="#home-section"
+        className="header__logo"
+        onClick={(e) => {
+          e.preventDefault();
+          onNavClick('home-section');
+        }}
+      >
+        <img src="/logo1.svg" alt="PathFinder Logo" className="nav-logo" />
+      </a>
+
+      {/* Desktop Nav */}
+      <nav className="navbar">
+        <ul className="navbar__menu">
+          {navLinks.map((link) => (
+            <li className="navbar__item" key={link.section}>
+              <a
+                href={`#${link.section}`}
+                className={`navbar__link ${activeSection === link.section ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavClick(link.section);
                 }}
               >
                 {link.label}
-              </Button>
-            ))}
-          </Box>
-        )}
-      </Toolbar>
-    </AppBar>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      {/* Mobile Circular Nav */}
+      <input
+        type="checkbox"
+        id="active"
+        checked={menuOpen}
+        onChange={() => setMenuOpen(!menuOpen)}
+      />
+      <label htmlFor="active" className="menu-btn">
+        <i className="fas fa-bars"></i>
+      </label>
+
+      <div className={`wrapper ${menuOpen ? 'show' : ''}`}>
+        <ul>
+          {navLinks.map((link) => (
+            <li key={link.section}>
+              <a
+                href={`#${link.section}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onNavClick(link.section);
+                  setMenuOpen(false); // close menu
+                }}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </header>
   );
 };
+
 
 export default NavBar;
