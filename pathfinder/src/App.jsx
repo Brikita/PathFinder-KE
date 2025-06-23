@@ -5,6 +5,8 @@ import About from "./views/About";
 import Contact from "./views/Contact";
 import Home from "./views/Home";
 import "./style.css";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 function App() {
   const homeRef = useRef(null);
@@ -23,6 +25,7 @@ function App() {
   return (
     <>
       <NavBar onNavClick={handleNavClick} />
+
 
       <main className="page-content">
         <section ref={homeRef} id="home-section" className="section">

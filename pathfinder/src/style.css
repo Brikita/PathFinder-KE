@@ -12,13 +12,14 @@ html, body {
   padding: 0;
   min-height: 100%;
   height: 100%;
-  font-family: "DM Sans", sans-serif;
   scroll-behavior: smooth;
   color: var(--text);
   background: linear-gradient(to bottom, #0a0f2c 0%, #001133 40%, #00051e 80%, #000000 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-x: hidden;
+  font-family: "Urbanist", sans-serif;
 }
 
 #root {
@@ -37,7 +38,7 @@ html, body {
 
 .section {
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 0;
   scroll-margin-top: 80px;
   display: flex;
   flex-direction: column;
@@ -52,25 +53,29 @@ html, body {
   left: 0;
   right: 0;
   z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.4); /* semi-transparent */
-  backdrop-filter: blur(12px);          /* <-- the blur effect */
-  -webkit-backdrop-filter: blur(12px);  /* Safari support */
+  background-color: #000E1E28;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 0 2rem;
   height: 6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 3rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 128, 255, 0.2);
+  overflow: hidden;
+   font-family: "Varela Round", sans-serif !important;
 }
+
 
 
 .nav-logo {
-   height: 70%;      /* scale relative to header height */
-   width: auto;      /* maintain aspect ratio */
-   object-fit: contain;
-   display: block;
+  max-height: 9rem;   /* ensures it doesn't exceed the header height */
+  width: auto;          /* keeps aspect ratio */
+  object-fit: contain;
+  display: block;
 }
+
 
 .navbar {
   display: flex;
@@ -104,7 +109,7 @@ html, body {
   width: var(--link-width);
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.25rem;
   gap: 0.4rem;
   color: #fff;
 }
@@ -138,117 +143,283 @@ html, body {
   color: #00eaff;
 }
 
+/* Base: Hide mobile menu completely */
+/* ================================ */
+/* === Desktop Nav Defaults === */
+/* ================================ */
+.navbar {
+  display: flex;
+}
+.menu-icon,
+.close-icon {
+  display: none;
+}
+
+/* ================================ */
+/* === Mobile Styles (Max 768px) === */
+/* ================================ */
+/* Hide mobile nav by default on all screens */
+.mobile-wrapper {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop nav */
+  .navbar {
+    display: none;
+  }
+
+  .nav-logo {
+    height: 8rem;
+    position: relative;
+    left: -2rem;
+  }
+
+
+  .menu-icon,
+  .close-icon {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 2rem;
+    right: 1.2rem;
+    z-index: 10000;
+    cursor: pointer;
+  }
+  .menu-icon{
+    color: #00eaff;
+  }
+
+
+  /* Mobile Menu Container */
+  .mobile-wrapper {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80vw;
+    height: 100vh;
+    background-color: #000E1E28;
+    backdrop-filter: blur(50px);
+    z-index: 9999;
+    transition: right 0.4s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 128, 255, 0.2);
+    border-radius: 80px 0 0 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Show Menu */
+  .mobile-wrapper.open {
+    right: 0;
+  }
+
+  /* Mobile Menu Links */
+  .mobile-wrapper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .mobile-wrapper ul li {
+    margin: 1.5rem 0;
+  }
+
+  .mobile-wrapper ul li a {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .mobile-wrapper ul li a:hover {
+    background: linear-gradient(120deg, rgba(0, 128, 255, 0.3), rgba(34, 255, 0, 0.34));;
+    color: #000;
+  }
+  .mobile-wrapper ul li a:active {
+    color: #00eaff;
+  }
+}
+
+  .close-icon {
+    display: block;
+    background: none;
+    border: none;
+    color: #ff0055;
+    font-size: 2rem;
+    position: absolute;
+    top: 2rem;
+    right: 1.2rem;
+    z-index: 10001;
+    cursor: pointer;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
 
 /* Homepage Section */
 #home-section.section {
-  padding-top: 1rem; /* or 1rem, adjust as needed */
+  padding-top: 0.5rem; /* or 1rem, adjust as needed */
 }
 .home-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0rem 2rem;
+  padding: 0;
   min-height: 100vh;
   gap: 2rem;
 }
-
-.text-container {
+.text-section {
   flex: 1;
-  text-align: left;
-  align-self: flex-start;
-  margin-top: 9rem; /* lift slightly upward */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: -5rem;
+  padding: 1.5rem;
 }
 
-
+.text-container {
+  text-align: left;
+}
 
 .home-title {
+  font-family: "Varela Round", sans-serif !important;
   font-weight: 700;
   font-size: 3rem;
 }
 
 .home-subtitle {
+  font-family: "Urbanist", sans-serif !important;
   font-size: 1.5rem;
   font-style: italic;
 }
-
+.home-caption{
+  font-family: "Urbanist", sans-serif !important;
+  padding-top: 8rem;
+}
 
 /* Buttons */
-.home-button{
-   margin-top: 2rem;
-}
-.animated-btn {
-  background: linear-gradient(60deg, #000046, #001f3f, #0066cc, #0088cc, #0aa3a3);
+.home-buttons {
+  margin-top: 2rem;
+  display: inline-flex;
+  max-width: fit-content;
+  white-space: nowrap;
+  padding: 8px;
+  border-radius: 60px;
+  position: relative;
+  background: linear-gradient(50deg, #000046, #001f3f, #0066cc, rgba(0, 119, 204, 0.96), #0aa3a3);
   background-size: 300% 300%;
   animation: gradientFlow 3s ease infinite;
-  animation-direction: normal;
+  animation-direction:normal;
 
-  color: #ffffff !important;
-  border: none !important;
-  border-radius: 999px !important;
-  padding: 0.9rem 2.2rem !important;
-  font-size: 1rem !important;
-  font-weight: 600;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    animation-direction 0.3s ease;
+    transition:
+     transform 0.3s ease,
+     box-shadow 0.3s ease,
+     animation-direction 0.3s ease;
+
+  box-shadow: 0 10px 20px rgba(0, 128, 255, 0.2);
   overflow: hidden;
-  position: relative;
+  color: #fff;
   z-index: 1;
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  box-shadow: none;
 }
 
-.animated-btn span {
-  position: relative;
-  display: inline-block;
-  transition: padding-right 0.4s ease;
-}
-
-/* 2. the sliding label */
-.animated-btn span::after {
-  content: " the CareerVerse";
-  position: absolute;
-  /* start completely outside to the right */
-  left: 40%;
-  top: 0;
-  white-space: nowrap;
-
-  opacity: 0;
-  transform: translateX(0.5rem);   /* tiny gap before entry */
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-/* 3. hover state */
-.animated-btn:hover span {
-  /* push the first word enough so the ::after text fits without overlap */
-  padding-right: 6rem;            /* tweak until it feels right */
-}
-
-.animated-btn:hover span::after {
-  opacity: 1;
-  transform: translateX(0);        /* slide flush up to the first word */
-}
-.animated-btn:hover {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
-              0 0 40px rgba(0, 255, 128, 0.2);
+@keyframes gradientFlow {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+.home-buttons:hover {
+  width: auto;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(0, 255, 128, 0.2);
   animation-direction: reverse;
 }
 
-
-/* Background flow animation */
-@keyframes gradientFlow {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.home-buttons:active{
+  transform: scale(0.8);
 }
 
+
+.animated-btn {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 60px;
+  color: white;
+  font-family: "Varela Round", sans-serif !important;
+  font-size: 1.12rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;git
+  transition: all 0.4s ease;
+  text-decoration: none;
+  max-width: 100%;
+
+}
+
+.animated-btn .btn-label::after {
+  content: ' the careerverse';
+  position: absolute;
+  top: 0;
+  left: 36%;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(0.6rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.animated-btn:hover .btn-label {
+  padding-right: 13rem;
+}
+
+.animated-btn:hover .btn-label::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.animated-btn:hover span {
+  transform: scale(1);
+}
+
+.animated-btn span {
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  align-items: center;
+  gap: 0.4rem;
+  transition: 0.4s ease-in-out;
+}
+
+
 /* Avatar Image */
+.avatar-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .avatar-container {
   flex: 1;
   display: flex;
@@ -257,10 +428,75 @@ html, body {
 }
 
 .avatar-container img {
-  max-height: 100vh;
-  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 80vh;
   object-fit: contain;
 }
+
+@media (max-width: 768px) {
+  .section{
+    padding-top: 3rem;
+  }
+  .home-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 0.5rem;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .text-section {
+    width: 100%;
+    text-align: center;
+
+  }
+  .home-title {
+    font-size: 3rem !important;
+  }
+
+  .text-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding-top: 2rem;
+  }
+  .home-caption{
+    padding-top: 2rem;
+  }
+
+  .avatar-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .avatar-container {
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+    z-index: 1;
+    top: -7rem;
+    left: 2.5rem;
+  }
+  .avatar-container img{
+
+  }
+
+  .home-buttons {
+    position: absolute;
+    top: 33rem;
+    left: 6rem;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  .animated-btn {
+    font-size: 0.9rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
 /* Blurred modal backdrop */
 .popup {
   position: fixed;
@@ -294,7 +530,7 @@ html, body {
   padding: 2rem 3rem;
   border-radius: 16px;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-align: center;
   max-width: 90%;
   position: relative;
@@ -314,162 +550,33 @@ html, body {
 .popup-close:hover {
   color: #ff0055;
 }
-
-
-/* ---------------------------- */
-/* 📱 Responsive Styles (Max 768px) */
-/* ---------------------------- */
-@media (max-width: 768px) {
-  /* Logo size fix */
-  .nav-logo {
-    height: 40%;
-    width: auto;
-  }
-
-  /* Hide desktop navbar */
-  .navbar {
-    display: none;
-  }
-
-  /* Mobile nav wrapper */
-  .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #000;
-    clip-path: circle(25px at calc(100% - 45px) 45px);
-    transition: clip-path 0.3s ease-in-out;
-    z-index: 9999;
-    overflow: hidden;
-  }
-
-  /* When menu is open */
-  .wrapper.show {
-    clip-path: circle(150% at 90% 40px);
-  }
-
-  /* Mobile nav links */
-  .wrapper ul {
-    list-style: none;
-    text-align: center;
-    padding: 0;
-  }
-
-  .wrapper ul li {
-    margin: 15px 0;
-  }
-
-  .wrapper ul li a {
-    font-size: 1.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    color: #fff;
-    position: relative;
-    padding: 10px 30px;
-    border-radius: 40px;
-    background: #000;
-    z-index: 1;
-    transition: all 0.3s ease;
-  }
-
-  .wrapper ul li a:after {
-    content: '';
-    position: absolute;
-    top: -5%;
-    left: -2%;
-    width: 104%;
-    height: 110%;
-    background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
-    border-radius: 40px;
-    transform: scaleY(0);
-    z-index: -1;
-    transition: transform 0.3s ease;
-    animation: rotate 1.5s linear infinite;
-  }
-
-  .wrapper ul li a:hover:after {
-    transform: scaleY(1);
-  }
-
-  .wrapper ul li a:hover {
-    color: #fff;
-  }
-
-  @keyframes rotate {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
-  }
-
-  /* Hamburger Menu Button */
-  .menu-btn {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    height: 3rem;
-    width: 3rem;
-    background: #000;
-    border-radius: 50%;
-    color: #fff;
-    font-size: 1.5rem;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
-
-  input[type="checkbox"] {
-    display: none;
-  }
-
-  /* Lock body scroll when menu is open */
-  body.menu-open {
-    overflow: hidden;
-  }
-
-  /* Home section responsive layout */
-  .home-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem 1rem;
-    gap: 2rem;
-  }
-
-  .text-container {
-    margin-top: 2rem;
-    align-self: center;
-    text-align: center;
-  }
-
-  .home-title {
-    font-size: 2rem;
-  }
-
-  .home-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .animated-btn {
-    padding: 0.8rem 2rem !important;
-    font-size: 0.9rem !important;
-  }
-
-  .avatar-container {
-    margin-top: 2rem;
-    max-width: 90vw;
-  }
-
-  .avatar-container img {
-    max-height: 50vh;
-    width: auto;
-  }
+@media (max-width: 768px){
+  .popup-content{}
+  padding: 6rem;
 }
 
+/* Hide checkbox toggle by default */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Hamburger Menu Button */
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10000;
+}
 
 /* Footer */
 .footer {
