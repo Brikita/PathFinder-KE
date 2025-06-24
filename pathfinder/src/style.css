@@ -64,14 +64,14 @@ html, body {
   gap: 3rem;
   box-shadow: 0 4px 20px rgba(0, 128, 255, 0.2);
   overflow: hidden;
-   font-family: "Varela Round", sans-serif !important;
+  font-family: "Audiowide", sans-serif;
 }
 
 
 
 .nav-logo {
-  max-height: 9rem;   /* ensures it doesn't exceed the header height */
-  width: auto;          /* keeps aspect ratio */
+  max-height: 9em;
+  width: auto;
   object-fit: contain;
   display: block;
 }
@@ -87,14 +87,10 @@ html, body {
 
 .navbar__menu {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   gap: 2rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  position: relative;
 }
 
 /* Underline effect */
@@ -232,18 +228,18 @@ html, body {
   }
 
   .mobile-wrapper ul li a {
+    font-family: "Audiowide", sans-serif;
     font-size: 1.75rem;
-    font-weight: bold;
+    font-weight: normal;
     color: #fff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 50px;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.2s ease, color 0.2s ease;
   }
 
   .mobile-wrapper ul li a:hover {
     background: linear-gradient(120deg, rgba(0, 128, 255, 0.3), rgba(34, 255, 0, 0.34));;
-    color: #000;
   }
   .mobile-wrapper ul li a:active {
     color: #00eaff;
@@ -271,62 +267,54 @@ html, body {
 
 /* Homepage Section */
 #home-section.section {
-  padding-top: 0.5rem; /* or 1rem, adjust as needed */
+  padding: 0; /* or 1rem, adjust as needed */
 }
 .home-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.5rem;
   min-height: 100vh;
-  gap: 2rem;
+  justify-content: space-between;
 }
+
 .text-section {
-  flex: 1;
+  flex: 1 1 60%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
-  top: -5rem;
-  padding: 1.5rem;
+  justify-content: flex-start;
+  padding: 1em;
 }
 
-.text-container {
-  text-align: left;
-}
 
 .home-title {
-  font-family: "Varela Round", sans-serif !important;
-  font-weight: 700;
-  font-size: 3rem;
+  font-family: "Audiowide", sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 6em !important;
 }
 
 .home-subtitle {
-  font-family: "Urbanist", sans-serif !important;
-  font-size: 1.5rem;
+  font-family: "Audiowide", sans-serif  !important;
+  font-size: 2.5rem !important;
   font-style: italic;
-}
-.home-caption{
-  font-family: "Urbanist", sans-serif !important;
-  padding-top: 8rem;
+  color: #0899cf;
 }
 
 /* Buttons */
 .home-buttons {
-  margin-top: 2rem;
+  margin-top: 4rem;
   display: inline-flex;
   max-width: fit-content;
+  min-height: 3rem;
   white-space: nowrap;
-  padding: 8px;
-  border-radius: 60px;
+  padding: 10px;
+  border-radius: 90px;
   position: relative;
   background: linear-gradient(50deg, #000046, #001f3f, #0066cc, rgba(0, 119, 204, 0.96), #0aa3a3);
   background-size: 300% 300%;
   animation: gradientFlow 3s ease infinite;
   animation-direction:normal;
-
-    transition:
+  transition:
      transform 0.3s ease,
      box-shadow 0.3s ease,
      animation-direction 0.3s ease;
@@ -338,9 +326,9 @@ html, body {
 }
 
 @keyframes gradientFlow {
-    0%   { background-position: 0% 50%; }
+    0%   { background-position: 0 50%; }
     50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 0 50%; }
   }
 .home-buttons:hover {
   width: auto;
@@ -359,21 +347,16 @@ html, body {
   z-index: 1;
   background: transparent;
   border: none;
-  padding: 0.8rem 2rem;
+  padding: 0;
   border-radius: 60px;
   color: white;
-  font-family: "Varela Round", sans-serif !important;
-  font-size: 1.12rem;
-  font-weight: bold;
-  text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  cursor: pointer;git
+  cursor: pointer;
   transition: all 0.4s ease;
   text-decoration: none;
   max-width: 100%;
-
 }
 
 .animated-btn .btn-label::after {
@@ -388,7 +371,7 @@ html, body {
 }
 
 .animated-btn:hover .btn-label {
-  padding-right: 13rem;
+  padding-right: 20rem;
 }
 
 .animated-btn:hover .btn-label::after {
@@ -403,8 +386,9 @@ html, body {
 
 .animated-btn span {
   display: flex;
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-family: "Doto", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
   color: white;
   align-items: center;
   gap: 0.4rem;
@@ -414,11 +398,11 @@ html, body {
 
 /* Avatar Image */
 .avatar-wrapper {
-  flex: 1;
+  flex: 1 1 30%;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
+
 
 .avatar-container {
   flex: 1;
@@ -429,7 +413,6 @@ html, body {
 
 .avatar-container img {
   max-width: 100%;
-  height: auto;
   max-height: 80vh;
   object-fit: contain;
 }
@@ -442,59 +425,54 @@ html, body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 2rem 0.5rem;
-    gap: 1.5rem;
-    position: relative;
+    padding: 2rem 1rem;
   }
 
   .text-section {
     width: 100%;
     text-align: center;
-
+    padding: 0;
   }
+
   .home-title {
     font-size: 3rem !important;
   }
+  .home-subtitle {
+    font-size: 1.5rem !important;
+  }
 
   .text-container {
-    max-width: 90%;
-    margin: 0 auto;
-    padding-top: 2rem;
-  }
-  .home-caption{
+    max-width: 95%;
+    margin: auto;
     padding-top: 2rem;
   }
 
   .avatar-wrapper {
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 
   .avatar-container {
     width: 100%;
-    max-width: 300px;
     position: relative;
     z-index: 1;
     top: -7rem;
-    left: 2.5rem;
   }
   .avatar-container img{
+    position: relative;
+    right: 6.5rem;
+
 
   }
-
   .home-buttons {
-    position: absolute;
-    top: 33rem;
-    left: 6rem;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+    position: static;
+    margin-top: 2rem;
+  }
+  .animated-btn span{
+    font-size: 1.2rem;
   }
 
-  .animated-btn {
-    font-size: 0.9rem;
-    padding: 0.8rem 2rem;
-  }
+
+
 }
 
 /* Blurred modal backdrop */
@@ -578,6 +556,7 @@ input[type="checkbox"] {
   z-index: 10000;
 }
 
+
 /* Footer */
 .footer {
   background-color: transparent;
@@ -588,5 +567,6 @@ input[type="checkbox"] {
 .footer-text {
   font-size: 0.85rem;
 }
+
 
 
