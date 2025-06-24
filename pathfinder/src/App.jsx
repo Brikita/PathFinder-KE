@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import About from "./views/About";
 import Contact from "./views/Contact";
 import Home from "./views/Home";
+import Team from "./views/Team";
 import "./style.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -11,12 +12,14 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 function App() {
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
+  const teamRef = useRef(null);
   const contactRef = useRef(null);
 
   const handleNavClick = (section) => {
     const refs = {
       "home-section": homeRef,
       "about-section": aboutRef,
+      "team-section": teamRef,
       "contact-section": contactRef,
     };
     refs[section]?.current?.scrollIntoView({ behavior: "smooth" });
@@ -34,6 +37,10 @@ function App() {
 
         <section ref={aboutRef} id="about-section" className="section">
           <About />
+        </section>
+
+        <section ref={teamRef} id="team-section" className="section">
+          <Team />
         </section>
 
         <section ref={contactRef} id="contact-section" className="section">

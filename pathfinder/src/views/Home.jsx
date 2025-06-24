@@ -21,9 +21,6 @@ const Home = () => {
             <Typography variant="h5" className="home-subtitle">
               Play Your Path. Own Your Future.
             </Typography>
-            <Typography variant="h5" className="home-caption">
-              The ultimate career exploration gameplay for African learners.
-            </Typography>
           </div>
 
           <div className="home-buttons">

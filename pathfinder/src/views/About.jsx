@@ -2,66 +2,35 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Grid from "@mui/material/Grid";
-import TeamCard from "../components/Card";
-import team from "../data/Team";
+import styled from "styled-components";
 
 const About = () => (
-  <Container maxWidth="md">
-    <Box sx={{ padding: { xs: 2, sm: 4 } }}>
-      <Typography variant="h4" component="h3" gutterBottom>
-        About PathFinderKE
-      </Typography>
-      <Typography variant="body1" paragraph>
-        PathFinder-KE is a web-based application designed to visualize and
-        compare different pathfinding algorithms. It provides an interactive
-        platform for users to explore how algorithms like Dijkstra's, A*, and
-        others work in real-time on a grid.
-      </Typography>
-      <Typography variant="body1" paragraph>
-        The project aims to help students, educators, and enthusiasts understand
-        the strengths and weaknesses of various algorithms through visual
-        feedback and easy-to-use controls.
-      </Typography>
-      <Typography variant="body1" paragraph>
-        Built with React and Material-UI, PathFinder-KE offers a modern and
-        responsive user experience.
-      </Typography>
-
-      <Box sx={{ mt: 6 }}>
-        <Typography variant="h4" component="h3" gutterBottom align="center">
-          Meet the Team
+  <section id="about-section" className="section">
+    <Container maxWidth="md">
+      <Box sx={{ padding: { xs: 2, sm: 4 } }}>
+        <Typography variant="h4" component="h3" gutterBottom>
+          About PathFinderKE
         </Typography>
-        <Grid
-          container
-          spacing={{ xs: 2, sm: 3 }}
-          justifyContent="center"
-          alignItems="stretch"
-        >
-          {team.map((member) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={2.4}
-              key={member.name}
-              sx={{ display: "flex", justifyContent: "center" }}
-            >
-              <TeamCard
-                name={member.name}
-                role={member.role}
-                avatar={member.avatar}
-                github={member.github}
-                linkedin={member.linkedin}
-                x={member.x}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        <Typography variant="body1" paragraph>
+          PathFinder KE is your post-high school cheat code—part game, part guide, all Kenyan.
+          It’s a mobile and web app that lets you live out different career and academic paths in a fun, simulation-style experience.
+          Make choices, see where they lead, and learn through gameplay—no regrets, just lessons.
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Whether you're fresh out of high school, vibing in uni, or just wondering “what if?”,
+          PathFinder KE lets you explore your future like a story game, with YOU in the driver's seat.
+        </Typography>
+        <Typography variant="body1" paragraph>
+          Built with React and Material-UI, PathFinder-KE offers a modern and
+          responsive user experience.
+        </Typography>
       </Box>
-    </Box>
-  </Container>
+    </Container>
+  </section>
 );
 
 export default About;
+
+const StyledWrapper = styled.div`
+    
+`

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import '../style.css';
 
 const navLinks = [
-  { label: 'Home', section: 'home-section' },
-  { label: 'About', section: 'about-section' },
-  { label: 'Contact', section: 'contact-section' },
+    { label: 'Home', section: 'home-section' },
+    { label: 'About', section: 'about-section' },
+    { label: 'Team', section: 'team-section' },
+    { label: 'Contact', section: 'contact-section' },
 ];
 
 const NavBar = ({ onNavClick }) => {
