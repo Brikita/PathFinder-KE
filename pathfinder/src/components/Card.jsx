@@ -141,6 +141,4 @@ const StyledWrapper = styled.div`
 
         .job {
             font-size: 0.85rem;
-        }
-    }
 `;
