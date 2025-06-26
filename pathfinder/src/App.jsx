@@ -29,7 +29,6 @@ function App() {
     <>
       <NavBar onNavClick={handleNavClick} />
 
-
       <main className="page-content">
         <section ref={homeRef} id="home-section" className="section">
           <Home />
