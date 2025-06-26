@@ -19,8 +19,9 @@ html, body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Audiowide", sans-serif;
 }
+
 
 #root {
   display: flex;
@@ -563,6 +564,4 @@ input[type="checkbox"] {
 .footer-text {
   font-size: 0.85rem;
 }
-
-
 
