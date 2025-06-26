@@ -7,7 +7,8 @@ import SliderGallery from "../components/SliderGallery";
 
 const Team = () => (
   <Box sx={{ py: 6 }}>
-    <Typography variant="h4" component="h3" gutterBottom align="center">
+    <Typography variant="inherit" component="h3" gutterBottom align="center"
+      sx={{ fontSize: { xs: "2rem", sm: "2.5rem" }, color: "#0899cf", }}>
       Meet the Team
     </Typography>
 

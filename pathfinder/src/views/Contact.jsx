@@ -1,10 +1,31 @@
 import React, { useState } from 'react';
+import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
+
+// Styled components
+const StyledContainer = styled(Container)(({ theme }) => ({
+  paddingTop: theme.spacing(4),
+  paddingBottom: theme.spacing(4),
+}));
+
+const FormBox = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(4),
+}));
+
+const StyledAlert = styled(Alert)(({ theme }) => ({
+  marginBottom: theme.spacing(2),
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  marginTop: theme.spacing(2),
+}));
+
+const grayColor = '#666'; // You can also use theme.palette.grey[700]
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -17,63 +38,48 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    // Here you would typically handle sending the form data to a backend or email service
   };
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ padding: 4 }}>
-        <Typography variant="h4" component="h2" gutterBottom>
+    <StyledContainer maxWidth="sm">
+      <FormBox>
+        <Typography variant="inherit" component="h2" gutterBottom
+          sx={{ fontSize: { xs: '2rem', sm: '2.5rem' }, color: '#0899cf', textAlign: 'center' }}>
           Contact Us
         </Typography>
         {submitted && (
-          <Alert severity="success" sx={{ mb: 2 }}>
+          <StyledAlert severity="success">
             Thank you for reaching out! We will get back to you soon.
-          </Alert>
+          </StyledAlert>
         )}
         <Box component="form" onSubmit={handleSubmit} noValidate autoComplete="off">
-          <TextField
-            fullWidth
-            label="Name"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            label="Email"
-            name="email"
-            type="email"
-            value={form.email}
-            onChange={handleChange}
-            margin="normal"
-            required
-          />
-          <TextField
-            fullWidth
-            label="Message"
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            margin="normal"
-            required
-            multiline
-            rows={4}
-          />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            sx={{ mt: 2 }}
-            disabled={submitted}
-          >
+          {['name', 'email', 'message'].map((field) => (
+            <TextField
+              key={field}
+              fullWidth
+              label={field === 'message' ? 'Message' : field.charAt(0).toUpperCase() + field.slice(1)}
+              name={field}
+              type={field === 'email' ? 'email' : 'text'}
+              value={form[field]}
+              onChange={handleChange}
+              margin="normal"
+              required
+              multiline={field === 'message'}
+              rows={field === 'message' ? 4 : undefined}
+              InputProps={{
+                style: { color: grayColor },
+              }}
+              InputLabelProps={{
+                style: { color: grayColor },
+              }}
+            />
+          ))}
+          <StyledButton type="submit" variant="contained" color="primary" disabled={submitted}>
             Send Message
-          </Button>
+          </StyledButton>
         </Box>
-      </Box>
-    </Container>
+      </FormBox>
+    </StyledContainer>
   );
 };
 
