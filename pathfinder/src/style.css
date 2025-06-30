@@ -19,7 +19,7 @@ html, body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
-  font-family: "Urbanist", sans-serif;
+  font-family: "Audiowide", sans-serif;
 }
 
 #root {
@@ -31,7 +31,6 @@ html, body {
 /* All page sections sit here */
 .page-content {
   flex: 1;
-  padding-bottom: 4rem; /* Avoid overlap with footer */
   position: relative;
   z-index: 1;
 }
@@ -43,6 +42,9 @@ html, body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+#contact-section.section{
+  scroll-margin-top: 0 !important;
 }
 
 /* Header / NavBar */
@@ -469,7 +471,7 @@ html, body {
   .animated-btn span{
     font-size: 1.2rem;
   }
-}
+
 
 /* Blurred modal backdrop */
 .popup {
@@ -504,7 +506,7 @@ html, body {
   padding: 2rem 3rem;
   border-radius: 16px;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-align: center;
   max-width: 90%;
   position: relative;
@@ -555,13 +557,46 @@ input[type="checkbox"] {
 
 /* Footer */
 .footer {
-  background-color: transparent;
+  background-color: #013561;
   padding: 1rem 2rem;
   text-align: center;
 }
 
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .footer-text {
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.footer-socials {
+  list-style: none;
+  display: flex;
+  gap: 1.75rem;
+  padding: 0;
+  margin: 0;
+
+}
+
+.footer-socials li a {
+  font-size: 1.5rem;
+  color: #b3dcfd;
+  transition: color 0.3s ease;
+}
+
+.footer-socials li a:hover {
+  color: #0aa3a3; /* Use platform-specific color if needed */
+}
+
+@media (max-width: 600px) {
+  .footer-socials {
+    gap: 1rem;
+  }
 }
 
 

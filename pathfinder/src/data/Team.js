@@ -18,7 +18,7 @@ const team = [
     role: "ML Engineer",
     avatar: "Pato.jpg",
     github: "https://github.com/patrickleon710",
-    linkedin: "http://www.linkedin.com/in/pato-leon-swe",
+    linkedin: "https://www.linkedin.com/in/pato-leon-swe",
   },
   {
     name: "Oliver Murimi",
@@ -36,7 +36,7 @@ const team = [
   },
   {
     name: "Spencer Francis",
-    role: "Comminications Expert",
+    role: "Comminications Specialist",
     avatar: "Spence.jpg",
     linkedin: "https://www.linkedin.com/in/spencer-francis-5711642b7/",
   }

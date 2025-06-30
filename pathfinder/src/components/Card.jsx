@@ -33,112 +33,87 @@ const TeamCard = ({ name, role, avatar, github, linkedin, x }) => (
 export default TeamCard;
 
 const StyledWrapper = styled.div`
+    /* before adding the photo to the div with the "card-photo" class, in the css clear the styles for .card-photo and remove .card-photo::before and .card-photo::after, then set the desired styles for .card- photo. */
+
     .card {
-        width: 20em;
-        height: 30em;
-        background: #0a1e2c;
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0, 234, 255, 0.3);
-        position: relative;
-        text-align: center;
-        padding: 1rem;
+        --font-color: #ffffff;
+        --font-color-sub: rgb(42, 134, 184);
+        --bg-color: rgba(0, 111, 255, 0.11);
+        --main-color: rgba(0, 208, 255, 0.5);
+        width: 15rem;
+        height: 20rem;
+        background: var(--bg-color);
+        box-shadow: 1px 5px 60px 0px var(--main-color);
+        border-radius: 20px;
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: center;
-        gap: 1em;
-        transition: transform 0.3s ease;
-        margin: 2em;
+        gap: 0.5rem;
+        padding: 1rem;
     }
 
-    .card:hover {
-        transform: scale(1.05);
-    }
-
-    .card-border-top {
+    .card .card-border-top {
         width: 60%;
-        height: 5px;
-        background: #00eaff;
-        margin: 1em auto 0 auto;
-        border-radius: 0 0 15px 15px;
+        height: 3%;
+        background: #01b8ff;
+        margin: auto;
+        border-radius: 0px 0px 15px 15px;
     }
 
     .card-photo {
-      width: 10em;
-      height: 12em;
-      max-width: 100%;
-      border-radius: 30px;
-      object-fit: cover;
-      display: block;
-      margin: 2em auto 3em auto;
-        transition: transform 0.3s ease;
-   }
-    .card-photo:hover {
-        transform: scale(1.1);
+        /* clear and add new css */
+        width: 9rem;
+        height: 10rem;
+        border-radius: 30%;
+        object-fit: fill;
     }
 
-    
 
     .card-title {
-        color: #fff;
-        font-size: 1.6rem;
-        font-weight: 600;
+        text-align: center;
+        color: var(--font-color);
+        font-size: 20px;
+        font-weight: 400;
     }
 
     .job {
-        color: #8ab4f8;
-        font-size: 1.3rem;
-        font-style: italic;
-        margin: 0;
+        font-size: 15px;
+        color: var(--font-color-sub);
+        text-align: center;
     }
 
     .card-socials {
         display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 1rem;
-        opacity: 0;
         height: 0;
-        transition: opacity 0.4s ease, height 0.4s ease;
-    }
-
-    .card:hover .card-socials {
-        opacity: 1;
-        height: auto;
+        opacity: 0;
+        margin-top: 20px;
+        gap: 20px;
+        transition: 0.5s;
+        font-size: 1.5rem;
+        
     }
 
     .card-socials-btn {
-        width: 1em;
-        height: 1em;
-        font-size: 1.8em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
+        width: 25px;
+        height: 25px;
         border: none;
+        color: #0aa3a3;
         cursor: pointer;
-        color: #00eaff;
-        transition: transform 0.2s ease;
+    }
+
+    .card-socials-btn svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .card:hover > .card-socials {
+        opacity: 1;
+        height: 3rem;
     }
 
     .card-socials-btn:hover {
-        transform: translateY(-4px);
+        transform: translateY(-5px);
+        transition: all 0.15s;
     }
-
-    @media (max-width: 768px) {
-        .card {
-            width: 90%;
-            height: auto;
-        }
-
-        .card-photo {
-            width: 80px;
-            height: 80px;
-        }
-
-        .card-title {
-            font-size: 1rem;
-        }
-
-        .job {
-            font-size: 0.85rem;
 `;
