@@ -22,6 +22,7 @@ html, body {
   font-family: "Audiowide", sans-serif;
 }
 
+
 #root {
   display: flex;
   flex-direction: column;
@@ -598,6 +599,4 @@ input[type="checkbox"] {
     gap: 1rem;
   }
 }
-
-
 
