@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const SliderGallery = ({ children, width = '22em', height = '32em' }) => {
+const SliderGallery = ({ children, width = '12rem', height = '18rem' }) => {
   const cardCount = React.Children.count(children);
 
   return (
@@ -28,9 +28,9 @@ export default SliderGallery;
 
 const SliderWrapper = styled.div`
   width: 100%;
-  height: calc(var(--height) + 2em); /* ⬅️ Add extra space to prevent bottom crop */
-  padding-bottom: 1em;
+  height: 60vh;
   overflow: hidden;
+    padding-top: 4rem;
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 
@@ -38,6 +38,7 @@ const SliderWrapper = styled.div`
     display: flex;
     min-width: calc(var(--width) * var(--quantity));
     position: relative;
+      gap: 0.5em; /* Reduced spacing between items */
   }
 
   .item {
