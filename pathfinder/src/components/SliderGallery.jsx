@@ -30,7 +30,7 @@ const SliderWrapper = styled.div`
   width: 100%;
   height: 60vh;
   overflow: hidden;
-    padding-top: 4rem;
+    padding-top: 3rem;
   mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
   -webkit-mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 
@@ -38,7 +38,7 @@ const SliderWrapper = styled.div`
     display: flex;
     min-width: calc(var(--width) * var(--quantity));
     position: relative;
-      gap: 0.5em; /* Reduced spacing between items */
+      gap: 0.4rem; /* Reduced spacing between items */
   }
 
   .item {

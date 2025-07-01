@@ -43,13 +43,13 @@ const StyledWrapper = styled.div`
         width: 15rem;
         height: 20rem;
         background: var(--bg-color);
-        box-shadow: 1px 5px 60px 0px var(--main-color);
+        box-shadow: var(--main-color) 0px 15px 25px, var(--main-color) 0px 5px 10px;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
         padding: 0.5rem;
     }
 
@@ -73,12 +73,12 @@ const StyledWrapper = styled.div`
     .card-title {
         text-align: center;
         color: var(--font-color);
-        font-size: 1.3rem;
+        font-size: 1.35rem;
         font-weight: 400;
     }
 
     .job {
-        font-size: 15px;
+        font-size: 1rem;
         color: #b3dcfd;
         text-align: center;
     }

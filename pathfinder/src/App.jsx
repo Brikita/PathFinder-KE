@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import About from "./views/About";
 import Contact from "./views/Contact";
@@ -8,8 +8,20 @@ import Team from "./views/Team";
 import Discover from "./views/Discover";
 import "./style.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <AppContent />
+    </Router>
+  );
+}
+
+// Separated inner content to allow useLocation
+function AppContent() {
+  const location = useLocation();
   const homeRef = useRef(null);
   const aboutRef = useRef(null);
   const teamRef = useRef(null);
@@ -25,11 +37,12 @@ function App() {
     refs[section]?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const isDiscoverPage = location.pathname === "/discover";
+
   return (
-    <Router>
-      <NavBar onNavClick={handleNavClick} />
+    <>
+      {!isDiscoverPage && <NavBar onNavClick={handleNavClick} />}
       <Routes>
-        {/* Main scrollable landing page */}
         <Route
           path="/"
           element={
@@ -52,11 +65,9 @@ function App() {
             </main>
           }
         />
-
-        {/* Full-page Discover route (formerly About details) */}
         <Route path="/discover" element={<Discover />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 

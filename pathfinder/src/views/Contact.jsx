@@ -97,6 +97,10 @@ const StyledWrapper = styled.div`
     .text-wrapper {
       text-align: center;
     }
+    .text-wrapper h2{
+      -webkit-text-stroke-width: 0.1px;
+      -webkit-text-stroke-color: #fff;
+    }
   }
   
   .hover-underline-animation {

@@ -34,7 +34,7 @@ const NavBar = ({ onNavClick }) => {
       <header className="header">
         {/* Logo */}
         <a
-          href="#home-section"
+          href="home-section"
           className="header__logo"
           onClick={(e) => {
             e.preventDefault();
@@ -67,7 +67,7 @@ const NavBar = ({ onNavClick }) => {
         {/* Mobile Toggle Icons */}
         {!menuOpen && (
          <button className="menu-icon" onClick={() => setMenuOpen(true)}>
-            <i className="bi bi-list"></i>
+            <i className="bi bi-three-dots-vertical"></i>
          </button>
          )}
          </header>

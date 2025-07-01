@@ -156,7 +156,95 @@ html, body {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  /* Hide desktop nav for tablets and mobile */
+  .navbar {
+    display: none;
+  }
+
+  .nav-logo {
+    height: 9rem; /* larger for tablets */
+    position: relative;
+    left: -1rem;
+  }
+
+  .menu-icon,
+  .close-icon {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    font-weight: 600;
+    position: absolute;
+    top: 1.3rem;
+    right: 1.2rem;
+    z-index: 10000;
+    cursor: pointer;
+  }
+
+  .menu-icon {
+    color: #00eaff;
+  }
+
+  /* Mobile Menu Container */
+  .mobile-wrapper {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80vw;
+    height: 100vh;
+    background-color: #002852;
+    backdrop-filter: blur(50px);
+    z-index: 9999;
+    transition: right 0.4s ease-in-out;
+    box-shadow: 0 4px 20px rgba(0, 128, 255, 0.2);
+    border-radius: 80px 0 0 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-wrapper.open {
+    right: 0;
+  }
+
+  .mobile-wrapper ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .mobile-wrapper ul li {
+    margin: 1.5rem 0;
+  }
+
+  .mobile-wrapper ul li a {
+    font-family: "Audiowide", sans-serif;
+    font-size: 1.75rem;
+    font-weight: normal;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .mobile-wrapper ul li a:hover {
+    background-color: #000f20;
+    color: #00eaff;
+  }
+
+  .mobile-wrapper ul li a:active {
+    color: #00eaff;
+  }
+}
+
+
+@media (max-width: 480px) {
   /* Hide desktop nav */
   .navbar {
     display: none;
@@ -174,9 +262,10 @@ html, body {
     display: block;
     background: none;
     border: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: 600;
     position: absolute;
-    top: 2rem;
+    top: 1.3rem;
     right: 1.2rem;
     z-index: 10000;
     cursor: pointer;
@@ -244,17 +333,11 @@ html, body {
   }
 }
 
+
   .close-icon {
-    display: block;
-    background: none;
-    border: none;
     color: #ff0055;
-    font-size: 2rem;
-    position: absolute;
-    top: 2rem;
-    right: 1.2rem;
-    z-index: 10001;
-    cursor: pointer;
+    font-size: 3rem;
+
   }
 
   /* Prevent horizontal scroll */
@@ -328,23 +411,6 @@ input[type="checkbox"] {
   display: none;
 }
 
-/* Hamburger Menu Button */
-.menu-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-  z-index: 10000;
-}
 
 
 /* Footer */

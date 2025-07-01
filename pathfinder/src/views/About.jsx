@@ -143,7 +143,7 @@ const StyledWrapper = styled.div`
     transform-style: preserve-3d;
   }
 
-  .flip-card:hover .flip-card-inner {
+  .flip-card:hover .flip-card-inner , .flip-card:active {
     transform: rotateY(180deg);
   }
 
@@ -176,5 +176,16 @@ const StyledWrapper = styled.div`
 
   .card-content {
     padding: 1.5rem;
+  }
+  
+  @media (max-width: 768px) {
+    
+    
+    .flip-card{
+      width: 20rem;
+    }
+    .top-section p{
+      font-size: 1.5rem;
+    }
   }
 `;
