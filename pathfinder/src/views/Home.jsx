@@ -11,7 +11,10 @@ const Home = () => {
       <StyledWrapper>
         <Box className="home-container">
           <div className="text-section">
-            <div className="text-container">
+            <div className="text-container"
+                 data-aos="fade-right"
+                 data-aos-duration="1500"
+                 data-aos-easing="ease-in-out">
               <Typography variant="h2" component="h1" gutterBottom className="home-title">
                 PathFinder-KE
               </Typography>
@@ -19,7 +22,10 @@ const Home = () => {
                 Play Your Path. Own Your Future.
               </Typography>
             </div>
-            <div className="home-buttons">
+            <div className="home-buttons"
+                 data-aos="fade-right"
+                 data-aos-duration="1500"
+                 data-aos-easing="ease-in-sine">
               <Button
                 component="a"
                 href="#"
@@ -35,7 +41,10 @@ const Home = () => {
           </div>
 
           <div className="avatar-wrapper">
-            <div className="avatar-container">
+            <div className="avatar-container"
+                 data-aos="zoom-in-left"
+                 data-aos-duration="1500"
+                 data-aos-easing="ease-in-out">
               <img src="/avatar.png" alt="Avatar Character" />
             </div>
           </div>
@@ -264,7 +273,7 @@ const StyledWrapper = styled.div`
   }
 
   .home-title {
-    font-size: 2.4rem;
+    font-size: 2.5rem;
   }
 
   .home-subtitle {

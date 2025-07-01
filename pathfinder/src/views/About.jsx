@@ -1,13 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
+const FlipCard = ({ icon, title, description }) => {
+  const [flipped, setFlipped] = useState(false);
+
+  const handleToggle = () => {
+    setFlipped(prev => !prev);
+  };
+
+  return (
+    <div
+      className={`flip-card ${flipped ? "flipped" : ""}`}
+      onClick={handleToggle}
+      onMouseEnter={() => setFlipped(true)}
+      onMouseLeave={() => setFlipped(false)}
+    >
+      <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
+        <div className="flip-card-front">
+          <div className="card-content">
+            <i className={icon} style={{ fontSize: '3rem' }}></i>
+            <h3>{title}</h3>
+          </div>
+        </div>
+        <div className="flip-card-back">
+          <div className="card-content">
+            <p>{description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const About = () => {
   return (
     <StyledWrapper>
       <section className="top-section">
-        <div className="content">
+        <div
+          className="content"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+        >
           <h2>Kenya’s Career Crisis</h2>
           <p>
             Many young Kenyans finish high school without a clear understanding of the career paths ahead.
@@ -19,41 +55,19 @@ const About = () => {
       </section>
 
       <section className="bottom-section">
-        <div className="card-container">
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <div className="card-content">
-                  <i className="bi bi-controller" style={{ fontSize: '3rem' }}></i>
-                  <h3>Gamified</h3>
-                </div>
-              </div>
-              <div className="flip-card-back">
-                <div className="card-content">
-                  <p>
-                    We turn your choices into interactive gameplay so you can explore different paths safely and see how decisions shape your future.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flip-card">
-            <div className="flip-card-inner">
-              <div className="flip-card-front">
-                <div className="card-content">
-                  <i className="bi bi-journal-bookmark" style={{ fontSize: '3rem' }}></i>
-                  <h3>Educational</h3>
-                </div>
-              </div>
-              <div className="flip-card-back">
-                <div className="card-content">
-                  <p>
-                    Every experience is rooted in real-world data, ensuring you not only play but learn critical lessons for life and school.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div className="bottom-content">
+          <h2 className="section-title">Our Solution</h2>
+          <div className="card-container">
+            <FlipCard
+              icon="bi bi-controller"
+              title="Gamified"
+              description="We turn your choices into interactive gameplay so you can explore different paths safely and see how decisions shape your future."
+            />
+            <FlipCard
+              icon="bi bi-journal-bookmark"
+              title="Educational"
+              description="Every experience is rooted in real-world data, ensuring you not only play but learn critical lessons for life and school."
+            />
           </div>
         </div>
       </section>
@@ -89,8 +103,9 @@ const StyledWrapper = styled.div`
   }
 
   .top-section p {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     margin-bottom: 1.5rem;
+    font-family: "Fredoka", sans-serif;
   }
 
   .learn-more {
@@ -119,6 +134,19 @@ const StyledWrapper = styled.div`
     padding: 4rem 2rem;
   }
 
+  .bottom-content {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  .section-title {
+    color: #1ce6ff;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+  }
+
   .card-container {
     display: flex;
     gap: 2rem;
@@ -131,6 +159,7 @@ const StyledWrapper = styled.div`
     width: 26rem;
     height: 20rem;
     perspective: 1000px;
+    cursor: pointer;
   }
 
   .flip-card-inner {
@@ -143,11 +172,13 @@ const StyledWrapper = styled.div`
     transform-style: preserve-3d;
   }
 
-  .flip-card:hover .flip-card-inner , .flip-card:active {
+  .flip-card-inner.flipped,
+  .flip-card:hover .flip-card-inner {
     transform: rotateY(180deg);
   }
 
-  .flip-card-front, .flip-card-back {
+  .flip-card-front,
+  .flip-card-back {
     box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
     position: absolute;
     display: flex;
@@ -177,14 +208,13 @@ const StyledWrapper = styled.div`
   .card-content {
     padding: 1.5rem;
   }
-  
+
   @media (max-width: 768px) {
-    
-    
-    .flip-card{
+    .flip-card {
       width: 20rem;
     }
-    .top-section p{
+
+    .top-section p {
       font-size: 1.5rem;
     }
   }

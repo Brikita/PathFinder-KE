@@ -404,7 +404,7 @@ html, body {
 @media (max-width: 768px){
   .popup-content{}
   padding: 6rem;
-}
+ }
 
 /* Hide checkbox toggle by default */
 input[type="checkbox"] {

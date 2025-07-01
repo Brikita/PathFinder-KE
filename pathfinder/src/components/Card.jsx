@@ -50,7 +50,7 @@ const StyledWrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 0.6rem;
-        padding: 0.5rem;
+        padding: 1rem;
     }
 
     .card .card-border-top {
@@ -75,12 +75,14 @@ const StyledWrapper = styled.div`
         color: var(--font-color);
         font-size: 1.35rem;
         font-weight: 400;
+        margin-bottom: 0.;
     }
 
     .job {
         font-size: 1rem;
         color: #b3dcfd;
         text-align: center;
+        margin-top: 0;
     }
 
     .card-socials {
@@ -116,4 +118,15 @@ const StyledWrapper = styled.div`
         transform: translateY(-5px);
         transition: all 0.15s;
     }
+    
+    
+    @media (max-width: 1024px){
+        .card-socials {
+        opacity: 1;
+        height: 3rem;
+            margin-top: 0;
+    }
+    
+    
+    
 `;

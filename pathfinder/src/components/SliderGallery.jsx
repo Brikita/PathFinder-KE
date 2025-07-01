@@ -11,11 +11,13 @@ const SliderGallery = ({ children, width = '12rem', height = '18rem' }) => {
         '--height': height,
         '--quantity': cardCount,
         '--duration': '23s',
+
+
       }}
     >
       <div className="list">
         {React.Children.map(children, (child, index) => (
-          <div className="item" style={{ '--position': index + 1 }}>
+          <div className="item" style={{ '--position': index + 1}}>
             {child}
           </div>
         ))}
@@ -38,7 +40,7 @@ const SliderWrapper = styled.div`
     display: flex;
     min-width: calc(var(--width) * var(--quantity));
     position: relative;
-      gap: 0.4rem; /* Reduced spacing between items */
+      gap: 0.2rem; /* Reduced spacing between items */
   }
 
   .item {
@@ -69,16 +71,61 @@ const SliderWrapper = styled.div`
       left: 100%;
     }
     to {
-      left: calc(var(--width) * -1);
+      left: calc(var(--width) * -1 );
     }
   }
 
   @keyframes reversePlay {
     from {
-      left: calc(var(--width) * -1);
+      left: calc(var(--width) * -1 );
     }
     to {
       left: 100%;
     }
   }
+    
+  @media (max-width: 1024px) {
+  height: auto;
+  overflow: visible;
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 1rem;
+    justify-items: center;
+    min-width: unset;
+  }
+
+  .item {
+    position: static;
+    animation: none;
+    width: 16rem;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .item:hover {
+    filter: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: unset;
+  }
+
+  .item {
+    width: 16rem;
+    margin-bottom: 0;
+  }
+}
+
+
+
+
+
 `;
