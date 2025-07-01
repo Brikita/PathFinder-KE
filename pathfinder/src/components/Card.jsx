@@ -50,12 +50,12 @@ const StyledWrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        padding: 1rem;
+        padding: 0.5rem;
     }
 
     .card .card-border-top {
         width: 60%;
-        height: 3%;
+        height: 2%;
         background: #01b8ff;
         margin: auto;
         border-radius: 0px 0px 15px 15px;
@@ -64,7 +64,7 @@ const StyledWrapper = styled.div`
     .card-photo {
         /* clear and add new css */
         width: 9rem;
-        height: 10rem;
+        height: 9rem;
         border-radius: 30%;
         object-fit: fill;
     }
@@ -73,13 +73,13 @@ const StyledWrapper = styled.div`
     .card-title {
         text-align: center;
         color: var(--font-color);
-        font-size: 20px;
+        font-size: 1.3rem;
         font-weight: 400;
     }
 
     .job {
         font-size: 15px;
-        color: var(--font-color-sub);
+        color: #b3dcfd;
         text-align: center;
     }
 
