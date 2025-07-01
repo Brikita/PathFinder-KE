@@ -38,11 +38,7 @@ const About = () => {
   return (
     <StyledWrapper>
       <section className="top-section">
-        <div
-          className="content"
-          data-aos="fade-right"
-          data-aos-duration="1000"
-          data-aos-easing="ease-in-out"
+        <div className="content"
         >
           <h2>Kenya’s Career Crisis</h2>
           <p>

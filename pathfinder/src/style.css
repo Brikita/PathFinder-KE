@@ -157,15 +157,19 @@ html, body {
 }
 
 @media (max-width: 1024px) {
+   .header{
+     height: 8rem;
+   }
   /* Hide desktop nav for tablets and mobile */
   .navbar {
     display: none;
   }
 
   .nav-logo {
-    height: 9rem; /* larger for tablets */
+    max-height: 9rem; /* larger for tablets */
     position: relative;
-    left: -1rem;
+    padding: 0;
+
   }
 
   .menu-icon,
@@ -173,10 +177,10 @@ html, body {
     display: block;
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     position: absolute;
-    top: 1.3rem;
+    top: 2rem;
     right: 1.2rem;
     z-index: 10000;
     cursor: pointer;
@@ -245,6 +249,9 @@ html, body {
 
 
 @media (max-width: 480px) {
+   .header{
+     height: 5rem;
+   }
   /* Hide desktop nav */
   .navbar {
     display: none;

@@ -224,12 +224,12 @@ const StyledWrapper = styled.div`
   }
 
   .home-title {
-    font-size: 3rem;
+    font-size: 5rem;
     word-wrap: break-word;
   }
 
   .home-subtitle {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-top: 0.5rem;
     word-wrap: break-word;
     max-width: 100%;
@@ -253,7 +253,7 @@ const StyledWrapper = styled.div`
   }
 
   .animated-btn span {
-    font-size: 1rem;
+    font-size: 1.8rem;
   }
 
   .animated-btn .btn-label::after {
@@ -285,6 +285,10 @@ const StyledWrapper = styled.div`
   .home-buttons {
     margin-top: 1.5rem;
     justify-content: center;
+  }
+  
+  .animated-btn span {
+    font-size: 1rem;
   }
 
   .avatar-wrapper {
