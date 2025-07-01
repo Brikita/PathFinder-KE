@@ -37,23 +37,23 @@ const Team = () => (
 export default Team;
 
 const StyledWrapper = styled.div`
-    .team-container {
-        padding: 6rem 1rem;
-        color: white;
-        text-align: center;
-    }
+  .team-container {
+    padding: 6rem 1rem;
+    color: white;
+    text-align: center;
+  }
 
-    h3 {
-        font-family: "Audiowide", sans-serif;
-        font-size: 2.8rem;
-        font-weight: 600;
-        color: #1ce6ff;
-    }
+  h3 {
+    font-family: "Audiowide", sans-serif;
+    font-size: 2.8rem;
+    font-weight: 600;
+    color: #1ce6ff;
+  }
 
-    .team-tagline {
-        font-family: "Audiowide", sans-serif;
-        font-size: 1.4rem;
-        color: #ffffff;
-        margin-bottom: 3rem;
-    }
+  .team-tagline {
+    font-family: "Audiowide", sans-serif;
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 3rem;
+  }
 `;

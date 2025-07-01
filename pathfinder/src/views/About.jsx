@@ -38,8 +38,7 @@ const About = () => {
   return (
     <StyledWrapper>
       <section className="top-section">
-        <div className="content"
-        >
+        <div className="content">
           <h2>Kenya’s Career Crisis</h2>
           <p>
             Many young Kenyans finish high school without a clear understanding of the career paths ahead.
