@@ -1,79 +1,132 @@
 import React from 'react';
-import MuiCard from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardActions from '@mui/material/CardActions';
-import Avatar from '@mui/material/Avatar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import XIcon from '@mui/icons-material/X';
+import styled from 'styled-components';
 
 const TeamCard = ({ name, role, avatar, github, linkedin, x }) => (
-  <MuiCard
-    sx={{
-      width: 140,
-      minHeight: 180,
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      p: 2,
-      mx: 'auto'
-    }}
-    elevation={3}
-  >
-    <Avatar
-      alt={name}
-      src={avatar}
-      sx={{ width: 80, height: 80, mb: 1.5 }}
-    />
-    <CardContent sx={{ flexGrow: 1, textAlign: 'center', p: 0 }}>
-      <Typography variant="subtitle1" sx={{ fontWeight: 600 }}>
-        {name}
-      </Typography>
-      <Typography variant="caption" color="text.secondary">
-        {role}
-      </Typography>
-    </CardContent>
-    <CardActions sx={{ justifyContent: 'center', mt: 1 }}>
-      <Stack direction="row" spacing={1}>
-        <Button
-          size="small"
-          color="inherit"
-          href={github}
-          target="_blank"
-          rel="noopener"
-          aria-label="GitHub"
-          sx={{ minWidth: 0, p: 1 }}
-        >
-          <GitHubIcon fontSize="small" />
-        </Button>
-        <Button
-          size="small"
-          color="primary"
-          href={linkedin}
-          target="_blank"
-          rel="noopener"
-          aria-label="LinkedIn"
-          sx={{ minWidth: 0, p: 1 }}
-        >
-          <LinkedInIcon fontSize="small" />
-        </Button>
-        <Button
-          size="small"
-          color="secondary"
-          href={x}
-          target="_blank"
-          rel="noopener"
-          aria-label="X"
-          sx={{ minWidth: 0, p: 1 }}
-        >
-          <XIcon fontSize="small" />
-        </Button>
-      </Stack>
-    </CardActions>
-  </MuiCard>
+  <StyledWrapper>
+    <div className="card">
+      <div className="card-border-top" />
+      <img className="card-photo" src={avatar} alt={name} />
+      <span className="card-title">{name}</span>
+      <p className="job">{role}</p>
+
+      <div className="card-socials">
+        {github && (
+          <a className="card-socials-btn github" href={github} target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-github" />
+          </a>
+        )}
+        {linkedin && (
+          <a className="card-socials-btn linkedin" href={linkedin} target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-linkedin" />
+          </a>
+        )}
+        {x && (
+          <a className="card-socials-btn x" href={x} target="_blank" rel="noopener noreferrer">
+            <i className="bi bi-twitter-x" />
+          </a>
+        )}
+      </div>
+    </div>
+  </StyledWrapper>
 );
 
 export default TeamCard;
+
+const StyledWrapper = styled.div`
+    /* before adding the photo to the div with the "card-photo" class, in the css clear the styles for .card-photo and remove .card-photo::before and .card-photo::after, then set the desired styles for .card- photo. */
+
+    .card {
+        --font-color: #ffffff;
+        --font-color-sub: rgb(42, 134, 184);
+        --bg-color: rgba(0, 111, 255, 0.11);
+        --main-color: rgba(0, 208, 255, 0.5);
+        width: 15rem;
+        height: 20rem;
+        background: var(--bg-color);
+        box-shadow: var(--main-color) 0px 15px 25px, var(--main-color) 0px 5px 10px;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 1rem;
+    }
+
+    .card .card-border-top {
+        width: 60%;
+        height: 2%;
+        background: #01b8ff;
+        margin: auto;
+        border-radius: 0px 0px 15px 15px;
+    }
+
+    .card-photo {
+        /* clear and add new css */
+        width: 9rem;
+        height: 9rem;
+        border-radius: 30%;
+        object-fit: fill;
+    }
+
+
+    .card-title {
+        text-align: center;
+        color: var(--font-color);
+        font-size: 1.35rem;
+        font-weight: 400;
+        margin-bottom: 0.;
+    }
+
+    .job {
+        font-size: 1rem;
+        color: #b3dcfd;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .card-socials {
+        display: flex;
+        height: 0;
+        opacity: 0;
+        margin-top: 20px;
+        gap: 20px;
+        transition: 0.5s;
+        font-size: 1.5rem;
+        
+    }
+
+    .card-socials-btn {
+        width: 25px;
+        height: 25px;
+        border: none;
+        color: #0aa3a3;
+        cursor: pointer;
+    }
+
+    .card-socials-btn svg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .card:hover > .card-socials {
+        opacity: 1;
+        height: 3rem;
+    }
+
+    .card-socials-btn:hover {
+        transform: translateY(-5px);
+        transition: all 0.15s;
+    }
+    
+    
+    @media (max-width: 1024px){
+        .card-socials {
+        opacity: 1;
+        height: 3rem;
+            margin-top: 0;
+    }
+    
+    
+    
+`;

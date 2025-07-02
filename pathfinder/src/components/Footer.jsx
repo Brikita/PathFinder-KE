@@ -1,25 +1,18 @@
 import React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import "../style.css";
 
 const Footer = () => (
-  <Box
-    component="footer"
-    sx={{
-      py: 3,
-      px: 2,
-      position: "fixed",
-      left: 0,
-      bottom: 0,
-      width: "100%",
-      backgroundColor: "background.paper",
-      textAlign: "center",
-      zIndex: 1300,
-    }}
-  >
-    <Container maxWidth="md">
-      <Typography variant="body2" color="text.secondary">
+  <Box component="footer" className="footer">
+    <Container maxWidth="md" className="footer-content">
+        <ul className="footer-socials">
+        <li><a href=" https://www.tiktok.com/@pathfinderke_" target="_blank"><i className="bi bi-tiktok" /></a></li>
+        <li><a href="#"><i className="bi bi-linkedin" /></a></li>
+        <li><a href="https://x.com/PathFinderke_" target="_blank"><i className="bi bi-twitter-x" /></a></li>
+      </ul>
+      <Typography variant="body2" className="footer-text">
         © {new Date().getFullYear()} PathFinder-KE. All rights reserved.
       </Typography>
     </Container>
