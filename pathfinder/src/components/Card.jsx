@@ -43,19 +43,19 @@ const StyledWrapper = styled.div`
         width: 15rem;
         height: 20rem;
         background: var(--bg-color);
-        box-shadow: 1px 5px 60px 0px var(--main-color);
+        box-shadow: var(--main-color) 0px 15px 25px, var(--main-color) 0px 5px 10px;
         border-radius: 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 0.6rem;
         padding: 1rem;
     }
 
     .card .card-border-top {
         width: 60%;
-        height: 3%;
+        height: 2%;
         background: #01b8ff;
         margin: auto;
         border-radius: 0px 0px 15px 15px;
@@ -64,7 +64,7 @@ const StyledWrapper = styled.div`
     .card-photo {
         /* clear and add new css */
         width: 9rem;
-        height: 10rem;
+        height: 9rem;
         border-radius: 30%;
         object-fit: fill;
     }
@@ -73,14 +73,16 @@ const StyledWrapper = styled.div`
     .card-title {
         text-align: center;
         color: var(--font-color);
-        font-size: 20px;
+        font-size: 1.35rem;
         font-weight: 400;
+        margin-bottom: 0.;
     }
 
     .job {
-        font-size: 15px;
-        color: var(--font-color-sub);
+        font-size: 1rem;
+        color: #b3dcfd;
         text-align: center;
+        margin-top: 0;
     }
 
     .card-socials {
@@ -116,4 +118,15 @@ const StyledWrapper = styled.div`
         transform: translateY(-5px);
         transition: all 0.15s;
     }
+    
+    
+    @media (max-width: 1024px){
+        .card-socials {
+        opacity: 1;
+        height: 3rem;
+            margin-top: 0;
+    }
+    
+    
+    
 `;

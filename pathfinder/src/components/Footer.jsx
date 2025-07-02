@@ -10,7 +10,7 @@ const Footer = () => (
         <ul className="footer-socials">
         <li><a href=" https://www.tiktok.com/@pathfinderke_" target="_blank"><i className="bi bi-tiktok" /></a></li>
         <li><a href="#"><i className="bi bi-linkedin" /></a></li>
-        <li><a href="#"><i className="bi bi-twitter-x" /></a></li>
+        <li><a href="https://x.com/PathFinderke_" target="_blank"><i className="bi bi-twitter-x" /></a></li>
       </ul>
       <Typography variant="body2" className="footer-text">
         © {new Date().getFullYear()} PathFinder-KE. All rights reserved.
