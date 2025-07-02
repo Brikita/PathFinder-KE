@@ -224,16 +224,16 @@ html, body {
   }
 
   .mobile-wrapper ul li {
-    margin: 1.5rem 0;
+    margin: 3rem 0;
   }
 
   .mobile-wrapper ul li a {
     font-family: "Audiowide", sans-serif;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: normal;
     color: #fff;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     border-radius: 50px;
     transition: background 0.2s ease, color 0.2s ease;
   }
