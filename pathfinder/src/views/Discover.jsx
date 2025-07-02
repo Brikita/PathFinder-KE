@@ -15,7 +15,7 @@ const Discover = () => {
       <Container maxWidth="md">
         <Box className="content-box">
           <Typography variant="h4" component="h3" gutterBottom>
-            About PathFinder KE
+            What is PathFinder KE?
           </Typography>
 
           <Typography variant="body1" paragraph>
