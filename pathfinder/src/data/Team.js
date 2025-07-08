@@ -24,7 +24,7 @@ const team = [
     name: "Oliver Murimi",
     role: "UI/UX Designer",
     avatar: "Oliver.jpg",
-    github: "https://github.com/davidnjoroge",
+    github: "https://github.com/OCMG101",
     linkedin: "https://www.linkedin.com/in/oliver-murimi-366389263/",
   },
   {
