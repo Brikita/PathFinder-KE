@@ -14,6 +14,13 @@ const team = [
     linkedin: "https://www.linkedin.com/in/parsley-njoroge-32472a281/",
   },
   {
+    name: "Brian Kinyua",
+    role: "Fullstack Developer",
+    avatar: "proff.jpg",
+    github: "https://github.com/Brikita",
+    linkedin: "https://www.linkedin.com/in/briankinyua",
+  },
+  {
     name: "Patrick Leon",
     role: "ML Engineer",
     avatar: "Pato.jpg",
@@ -28,15 +35,8 @@ const team = [
     linkedin: "https://www.linkedin.com/in/oliver-murimi-366389263/",
   },
   {
-    name: "Brian Kinyua",
-    role: "Fullstack Developer",
-    avatar: "proff.jpg",
-    github: "https://github.com/Brikita",
-    linkedin: "https://www.linkedin.com/in/briankinyua",
-  },
-  {
     name: "Spencer Francis",
-    role: "Comminications Specialist",
+    role: "Communications Specialist",
     avatar: "Spence.jpg",
     linkedin: "https://www.linkedin.com/in/spencer-francis-5711642b7/",
   }
